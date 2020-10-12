@@ -1,4 +1,4 @@
-# Example app with typestyle
+# Exampl e app with typestyle
 
 This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [typestyle](https://github.com/typestyle/typestyle).
 
