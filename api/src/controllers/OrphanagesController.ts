@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
+import {getMongoManager} from "typeorm";
 import * as Yup from 'yup';
+import { ObjectId } from 'mongodb';
 
 import orphanageView from '../views/orphanages_view';
 
@@ -8,25 +9,31 @@ import Orphanage from '../models/Orphanage';
 
 export default {
   async index(request: Request, response: Response) {
-    const orphanagesRepository = getRepository(Orphanage);
+    const orphanagesRepository = getMongoManager();
 
-    const orphanages = await orphanagesRepository.find({
-      relations: ['images'],
-    });
+    const orphanages = await orphanagesRepository.find(Orphanage, {});
 
     return response.json(orphanageView.renderMany(orphanages));
   },
 
   async show(request: Request, response: Response) {
     const { id } = request.params;
+    
+    try {
+      const orphanagesRepository = getMongoManager();
 
-    const orphanagesRepository = getRepository(Orphanage);
-
-    const orphanage = await orphanagesRepository.findOneOrFail(id, {
-      relations: ['images'],
-    });
-
-    return response.json(orphanageView.render(orphanage));
+      const orphanage = await orphanagesRepository.findOne(Orphanage, {
+       _id: new ObjectId(id),
+      }) as Orphanage
+  
+      console.log(orphanage)
+  
+      return response.json(orphanageView.render(orphanage));
+    } catch (error) {
+      console.error(error)
+      return response.status(500).json({error: error.message});
+    }
+   
   },
 
   async create(request: Request, response: Response) {
@@ -40,7 +47,7 @@ export default {
       open_on_weekends
     } = request.body;
 
-    const orphanagesRepository = getRepository(Orphanage);
+    const orphanagesRepository = getMongoManager();
 
     const requestImages = request.files as Express.Multer.File[];
 
@@ -57,7 +64,7 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends,
+      open_on_weekends: open_on_weekends === 'true',
       images,
     };
 
@@ -76,9 +83,8 @@ export default {
 
     await schema.validate(data, { abortEarly: false });
 
-    const orphanage = orphanagesRepository.create(data);
+    const orphanage = await orphanagesRepository.save(Orphanage, data);
 
-    await orphanagesRepository.save(orphanage);
 
     return response.status(201).json(orphanage);
   }

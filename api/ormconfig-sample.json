@@ -1,6 +1,6 @@
 {
   "type": "mongodb",
-  "url": "mongodb+srv://nlw_admin:Cu5nBbkFuGBt9CUa@happy.kwhje.mongodb.net/nlw_dourados_happy?retryWrites=true&w=majority",
+  "url": "URL da conexao com mongodb no atlas",
   "useUnifiedTopology": true,
   "useNewUrlParser": true,
   "synchronize": true,
