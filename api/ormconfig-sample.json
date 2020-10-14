@@ -1,8 +1,0 @@
-{
-  "type": "mongodb",
-  "url": "URL da conexao com mongodb no atlas",
-  "useUnifiedTopology": true,
-  "useNewUrlParser": true,
-  "synchronize": true,
-  "entities": ["./src/models/*.ts"]
-}
