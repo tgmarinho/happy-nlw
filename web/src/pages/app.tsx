@@ -1,14 +1,31 @@
-import React from "react";
-import { FiPlus } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { FiPlus, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
+
+import api from "@/services/api";
 
 import dynamic from "next/dynamic";
 
-const MapWithNoSSR = dynamic(() => import("../components/map"), {
+const MapWithNoSSR = dynamic(() => import("../components/mapOrphanages"), {
   ssr: false,
 });
 
+export interface IOrphanage {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
+}
+
 const OrphanagesMap: React.FC = () => {
+  const [orphanages, setOrphanages] = useState<IOrphanage[]>([]);
+
+  useEffect(() => {
+    api.get("orphanages").then((response) => {
+      setOrphanages(response.data);
+    });
+  }, []);
+
   return (
     <div id="page-map">
       <aside>
@@ -20,14 +37,14 @@ const OrphanagesMap: React.FC = () => {
         </header>
 
         <footer>
-          <strong>Brasília</strong>
-          <span>Distrito Federal</span>
+          <strong>Dourados</strong>
+          <span>Mato Grosso do Sul</span>
         </footer>
       </aside>
 
-      <MapWithNoSSR />
+      <MapWithNoSSR orphanages={orphanages} />
 
-      <Link href="">
+      <Link href="/orphanages/create">
         <a className="create-orphanage">
           <FiPlus size={32} color="#FFF" />
         </a>
