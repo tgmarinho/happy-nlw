@@ -4,11 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=prod node dist/src/server.js",
-    "dev": "cross-env NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "build": "tsc -p . && cp *.json ../backend && cd ../backend && mkdir uploads",
-    "clean": "rimraf ../backend"
+    "start": "cross-env NODE_ENV=prod node backend/src/server.js"
   },
   "keywords": [
     "node"
