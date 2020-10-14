@@ -1,1 +1,1 @@
-web: node api/dist/src/server.js
+web: npm install && npm build && npm start

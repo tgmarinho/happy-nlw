@@ -4,14 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=prod node dist/src/server.js",
-    "dev": "NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "start": "cross-env NODE_ENV=prod node dist/src/server.js",
+    "dev": "cross-env NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "build": "tsc -p . && cp *.json ./dist && cp Procfile ./dist && cd dist && mkdir uploads",
+    "build": "tsc -p . && cp *.json ./dist && cd dist && mkdir uploads",
     "clean": "rimraf dist"
   },
+  "keywords": [
+    "node"
+  ],
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
