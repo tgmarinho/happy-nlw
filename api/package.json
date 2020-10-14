@@ -8,7 +8,7 @@
     "postinstall": "tsc && cd dist && mkdir uploads",
     "dev": "cross-env NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "build": "tsc -p . && cp *.json ./dist && cd dist && mkdir uploads",
+    "build": "tsc -p . && cp *.json ./dist && cd dist && mkdir -p uploads",
     "clean": "rimraf dist",
     "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
