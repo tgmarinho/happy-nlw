@@ -1,8 +1,0 @@
-{
-  "type": "mongodb",
-  "url": "mongodb+srv://nlw_admin:Cu5nBbkFuGBt9CUa@happy.kwhje.mongodb.net/nlw_dourados_happy?retryWrites=true&w=majority",
-  "useUnifiedTopology": true,
-  "useNewUrlParser": true,
-  "synchronize": true,
-  "entities": ["./src/models/*.ts"]
-}

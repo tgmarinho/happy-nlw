@@ -4,8 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "start": "NODE_ENV=prod node dist/src/server.js",
+    "dev": "NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "build": "tsc -p . && cp *.json ./dist && cp Procfile ./dist && cd dist && mkdir uploads",
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,6 +17,7 @@
     "express-async-errors": "^3.1.1",
     "mongodb": "^3.6.2",
     "multer": "^1.4.2",
+    "rimraf": "^3.0.2",
     "typeorm": "^0.2.28",
     "yup": "^0.29.3"
   },
