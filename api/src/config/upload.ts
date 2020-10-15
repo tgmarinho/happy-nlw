@@ -36,14 +36,15 @@ const storageTypes = {
         cb(null, fileName);
       });
     }
-  })
+  }),
 };
 
-console.log(process.env.STORAGE_TYPE)
+
+const storage = process.env.NODE_ENV === 'prod' ? storageTypes.s3 : storageTypes.storage
 
 export default {
   dest: path.resolve(__dirname, "..", "..", "uploads"),
-  storage: storageTypes[process.env.STORAGE_TYPE],
+  storage: storage,
   limits: {
     fileSize: 2 * 1024 * 1024
   },
