@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "happy NLW 3 - Rocketseat",
   "scripts": {
-    "start": "rm -rf web && rm -rf mobile && cd api && npm install && npm run build && npm start "
+    "start": "cd dist && npm install && npm start"
   },
   "repository": {
     "type": "git",
