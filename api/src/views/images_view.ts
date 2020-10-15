@@ -4,7 +4,7 @@ export default {
   render(image: Image) {
     return {
       
-      url: `http://localhost:3333/uploads/${image.path}`
+      url: `${process.env.API_URL}/uploads/${image.path}`
     }
   },
 
