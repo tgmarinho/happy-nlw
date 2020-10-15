@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 import Link from "next/link";
+import api from "@/services/api";
 
 const Landing: React.FC = () => {
+  // only for heroku starts
+  useEffect(() => {
+    api
+      .get("orphanages")
+      .then((response) => console.log("awake heroku - ", response.data.length));
+  }, []);
+
   return (
     <div id="page-landing">
       <div className="content-wrapper">
