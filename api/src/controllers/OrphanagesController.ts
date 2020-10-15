@@ -7,6 +7,7 @@ import orphanageView from '../views/orphanages_view';
 
 import Orphanage from '../models/Orphanage';
 
+
 export default {
   async index(request: Request, response: Response) {
     const orphanagesRepository = getMongoManager();
@@ -51,9 +52,9 @@ export default {
 
     const requestImages = request.files as Express.Multer.File[];
 
-    const images = requestImages.map(image => {
+    const images = requestImages.map((image: any) => {
       return {
-        path: image.filename
+        path: image.key
       }
     });
 
