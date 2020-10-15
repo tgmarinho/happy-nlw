@@ -9,7 +9,7 @@ const Landing: React.FC = () => {
   useEffect(() => {
     api
       .get("orphanages")
-      .then((response) => console.log("awake heroku - ", response.data.length));
+      .then((response) => console.log(`awake heroku - ${response.data.length}] registers on database`);
   }, []);
 
   return (

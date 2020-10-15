@@ -26,7 +26,7 @@ export default {
        _id: new ObjectId(id),
       }) as Orphanage
   
-      console.log(orphanage)
+     
   
       return response.json(orphanageView.render(orphanage));
     } catch (error) {
