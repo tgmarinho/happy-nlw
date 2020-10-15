@@ -6,6 +6,7 @@
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-hosting">Hospedagem</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-playground">Playground</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
@@ -46,7 +47,10 @@ Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [Mongo Atlas](https://cloud.mongodb.com/)
 - [Vercel](https://vercel.com/dashboard)
 
+## 🎮 Playground
 
+- [APP WEB](https://happy-dourados.vercel.app/)
+- [API](https://happy-dourados.herokuapp.com/orphanages)
 
 ## 🔖 Layout
 
