@@ -71,5 +71,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 <br>
 <br>
----
-<small>Awesome README copied from [@guilhermecapitao](https://github.com/guilhermecapitao/nlw3-discovery-happy)
+
+<small>Awesome README copied from [@guilhermecapitao](https://github.com/guilhermecapitao/nlw3-discovery-happy)</small>
