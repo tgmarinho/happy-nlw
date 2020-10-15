@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FiPlus, FiArrowRight } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 import Link from "next/link";
 
 import api from "@/services/api";
