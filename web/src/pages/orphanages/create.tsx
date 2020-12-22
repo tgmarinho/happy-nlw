@@ -21,6 +21,7 @@ export default function OrphanagesMap() {
 
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [instructions, setInstructions] = useState("");
   const [opening_hours, setOpeningHours] = useState("");
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
@@ -65,6 +66,7 @@ export default function OrphanagesMap() {
     data.append("longitude", String(longitude));
     data.append("instructions", instructions);
     data.append("opening_hours", opening_hours);
+    data.append("whatsapp", whatsapp);
     data.append("open_on_weekends", String(open_on_weekends));
 
     images.forEach((image) => {
@@ -106,6 +108,18 @@ export default function OrphanagesMap() {
                 maxLength={300}
                 value={about}
                 onChange={(event) => setAbout(event.target.value)}
+              />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="whatsapp">Número do Whatsapp</label>
+              <input
+                id="whatsapp"
+                value={whatsapp}
+                type="text"
+                maxLength={11}
+                minLength={11}
+                onChange={(event) => setWhatsapp(event.target.value)}
               />
             </div>
 

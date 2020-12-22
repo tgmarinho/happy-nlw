@@ -30,4 +30,10 @@ export default class Orphanage {
 
   @Column(type => Image)
   images: Image[];
+
+  @Column()
+  is_pending: boolean;
+
+  @Column()
+  whatsapp: string;
 }

@@ -12,7 +12,9 @@ export default {
   async index(request: Request, response: Response) {
     const orphanagesRepository = getMongoManager();
 
-    const orphanages = await orphanagesRepository.find(Orphanage, {});
+    const orphanages = await orphanagesRepository.find(Orphanage, { is_pending: false });
+
+    console.log(orphanages)
 
     return response.json(orphanageView.renderMany(orphanages));
   },
@@ -45,7 +47,8 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends
+      open_on_weekends,
+      whatsapp
     } = request.body;
 
     const orphanagesRepository = getMongoManager();
@@ -67,6 +70,8 @@ export default {
       opening_hours,
       open_on_weekends: open_on_weekends === 'true',
       images,
+      whatsapp,
+      is_pending: true,
     };
 
     const schema = Yup.object().shape({
@@ -77,6 +82,7 @@ export default {
       instructions: Yup.string().required(),
       opening_hours: Yup.string().required(),
       open_on_weekends: Yup.boolean().required(),
+      whatsapp: Yup.string().required(),
       images: Yup.array(Yup.object().shape({
         path: Yup.string().required(),
       })),

@@ -42,18 +42,48 @@
   line-height: 34px;
 }
 
+.content-logo-location {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  width: 500px;
+}
+
 .content-wrapper .location {
+  font-size: 20px;
+  line-height: 34px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper .acesso-restrito {
   position: absolute;
   right: 0;
   top: 0;
 
-  font-size: 24px;
-  line-height: 34px;
+  width: 222px;
+  height: 56px;
+  background: #12d4e0;
+  border-radius: 30px;
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  text-align: right;
+  transition: background-color 0.2s;
+
+  font-size: 20;
+
+  color: #96feff;
+
+  text-decoration: none;
+}
+
+.content-wrapper .acesso-restrito:hover {
+  background: #96f3ff;
+  color: #15c3d6;
 }
 
 .content-wrapper .location strong {
@@ -79,4 +109,37 @@
 
 .content-wrapper .enter-app:hover {
   background: #96f3ff;
+}
+
+@media (max-width: 800px) {
+  #page-landing .content-wrapper {
+    background: none;
+  }
+
+  #page-landing .content-wrapper main {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  #page-landing .content-wrapper main h1 {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 70px;
+  }
+
+  .content-wrapper .acesso-restrito {
+    position: initial;
+    align-self: center;
+  }
+
+  .content-wrapper .enter-app {
+    position: initial;
+    align-self: center;
+  }
+
+  .content-logo-location {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 }

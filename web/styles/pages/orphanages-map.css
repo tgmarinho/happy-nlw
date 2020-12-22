@@ -97,3 +97,18 @@
 #page-map .map-popup .leaflet-popup-tip-container {
   display: none;
 }
+
+@media (max-width: 900) {
+  #page-map {
+    width: 100%;
+    height: 30px;
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #page-map aside {
+    display: flex;
+    flex-direction: row;
+  }
+}

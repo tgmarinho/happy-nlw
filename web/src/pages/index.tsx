@@ -9,23 +9,33 @@ const Landing: React.FC = () => {
   useEffect(() => {
     api
       .get("orphanages")
-      .then((response) => console.log(`awake heroku - ${response.data.length}] registers on database`);
+      .then((response) =>
+        console.log(
+          `awake heroku - ${response.data.length} registers on database`
+        )
+      );
   }, []);
 
   return (
     <div id="page-landing">
       <div className="content-wrapper">
-        <img src="/images/logo.svg" alt="Happy" />
+        <div className="content-logo-location">
+          <img src="/images/logo.svg" alt="Happy" />
+
+          <div className="location">
+            <strong>Dourados</strong>
+            <span>Mato Grosso do Sul</span>
+          </div>
+        </div>
+
+        <Link href="/login">
+          <a className="acesso-restrito">Acesso restrito</a>
+        </Link>
 
         <main>
           <h1>Leve felicidade para o mundo</h1>
           <p>Visite orfanatos e mude o dia de muitas crianças.</p>
         </main>
-
-        <div className="location">
-          <strong>Dourados</strong>
-          <span>Mato Grosso do Sul</span>
-        </div>
 
         <Link href="/app">
           <a className="enter-app">
